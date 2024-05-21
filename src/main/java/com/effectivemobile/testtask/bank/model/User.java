@@ -4,11 +4,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Entity
@@ -20,6 +18,7 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode(of = {"userName"})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,7 +51,4 @@ public class User {
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     private BankAccount account = new BankAccount();
 
-    public interface UserRepository extends JpaRepository<User, Long> {
-        Optional<User> findByUserName(String userName);
-    }
 }

@@ -7,20 +7,23 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
+@org.hibernate.annotations.Check(constraints = "balance >= 0 AND initial_deposit >= 0")
 public class BankAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    private double balance;
+    private BigDecimal balance;
 
     @NotNull
-    private double initialDeposit;
+    private BigDecimal initialDeposit;
 }
