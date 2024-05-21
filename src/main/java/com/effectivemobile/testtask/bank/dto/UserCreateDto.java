@@ -9,12 +9,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 import java.util.Set;
 
-@Builder(builderMethodName = "of")
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@ToString
 public class UserCreateDto {
     private String userName;
     private String password;

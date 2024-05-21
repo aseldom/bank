@@ -8,11 +8,8 @@ import lombok.*;
 import java.time.LocalDate;
 import java.util.Set;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@ToString
 public class UserReturnDto {
     private String userName;
     private String fullName;

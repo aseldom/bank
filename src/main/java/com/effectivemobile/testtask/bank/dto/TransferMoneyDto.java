@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 public class TransferMoneyDto {
 
     private String recipient;
-
     private BigDecimal value;
 
 }
