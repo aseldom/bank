@@ -6,12 +6,13 @@ import com.effectivemobile.testtask.bank.service.PhoneService;
 import com.effectivemobile.testtask.bank.service.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.util.List;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @RestController
@@ -28,10 +29,19 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(userReturnDto);
     }
 
-    @GetMapping
-    public ResponseEntity<List<UserReturnDto>> findAllUsers() {
-//        Pageable pageable = PageRequest.of(page.orElse(0), size.orElse(10));
-        return ResponseEntity.ok(userService.findAllUsers());
+    @GetMapping("/search")
+    public ResponseEntity<Page<UserSearchDto>> findUsers(
+            @RequestParam(required = false) LocalDate birthDate,
+            @RequestParam(required = false) String number,
+            @RequestParam(required = false) String fullName,
+            @RequestParam(required = false) String email,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "id") String sortBy,
+            @RequestParam(defaultValue = "asc") String sortDir) {
+
+        Page<UserSearchDto> result = userService.searchUsers(birthDate, number, fullName, email, page, size, sortBy, sortDir);
+        return ResponseEntity.ok(result);
     }
 
     @PostMapping("/add-phone")

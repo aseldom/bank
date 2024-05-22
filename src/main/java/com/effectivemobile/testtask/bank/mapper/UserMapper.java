@@ -2,6 +2,7 @@ package com.effectivemobile.testtask.bank.mapper;
 
 import com.effectivemobile.testtask.bank.dto.UserCreateDto;
 import com.effectivemobile.testtask.bank.dto.UserReturnDto;
+import com.effectivemobile.testtask.bank.dto.UserSearchDto;
 import com.effectivemobile.testtask.bank.model.EmailAddress;
 import com.effectivemobile.testtask.bank.model.Phone;
 import com.effectivemobile.testtask.bank.model.User;
@@ -15,6 +16,8 @@ import java.util.Set;
 public interface UserMapper {
 
     UserReturnDto toUserReturnDto(User user);
+
+    UserSearchDto toUserSearchDto(User user);
 
     List<UserReturnDto> toUserReturnDtos(List<User> users);
 
