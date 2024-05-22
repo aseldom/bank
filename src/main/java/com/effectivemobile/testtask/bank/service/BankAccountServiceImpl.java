@@ -19,7 +19,6 @@ import java.math.BigDecimal;
 public class BankAccountServiceImpl implements BankAccountService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BankAccountServiceImpl.class);
-
     private final UserRepository userRepository;
     private final BankAccountRepository bankAccountRepository;
 
