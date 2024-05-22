@@ -35,31 +35,43 @@ public class UserController {
     }
 
     @PostMapping("/add-phone")
-    public ResponseEntity<UserReturnDto> addPhone(@RequestBody AddPhoneDto addPhoneDto, Principal principal) {
-        UserReturnDto updatedUser = phoneService.addPhone(principal.getName(), addPhoneDto);
+    public ResponseEntity<UserReturnDto> addPhone(@RequestBody PhoneAddDto phoneAddDto, Principal principal) {
+        UserReturnDto updatedUser = phoneService.addPhone(principal.getName(), phoneAddDto);
         return ResponseEntity.ok(updatedUser);
     }
 
-    @PostMapping("/add-email")
-    public ResponseEntity<UserReturnDto> addEmail(@RequestBody AddEmailDto addEmailDto, Principal principal) {
-        UserReturnDto updatedUser = emailService.addEmail(principal.getName(), addEmailDto);
+    @PutMapping("/change-phone")
+    public ResponseEntity<UserReturnDto> changePhone(@RequestBody PhoneChangeDto phoneChangeDto, Principal principal) {
+        UserReturnDto updatedUser = phoneService.changePhone(principal.getName(), phoneChangeDto);
         return ResponseEntity.ok(updatedUser);
     }
 
     @DeleteMapping("/delete-phone")
     public ResponseEntity<String> deletePhone(@RequestBody PhoneDeleteDto phoneDeleteDto, Principal principal) {
         try {
-            phoneService.deletePhone(principal.getName(), phoneDeleteDto.getPhone());
+            phoneService.deletePhone(principal.getName(), phoneDeleteDto);
             return ResponseEntity.ok("Phone deleted successfully");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
+    @PostMapping("/add-email")
+    public ResponseEntity<UserReturnDto> addEmail(@RequestBody EmailAddDto emailAddDto, Principal principal) {
+        UserReturnDto updatedUser = emailService.addEmail(principal.getName(), emailAddDto);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+    @PutMapping("/change-email")
+    public ResponseEntity<UserReturnDto> changePhone(@RequestBody EmailChangeDto emailChangeDto, Principal principal) {
+        UserReturnDto updatedUser = emailService.changeEmail(principal.getName(), emailChangeDto);
+        return ResponseEntity.ok(updatedUser);
+    }
+
     @DeleteMapping("/delete-email")
     public ResponseEntity<String> deleteEmail(@RequestBody EmailDeleteDto deleteEmailDto, Principal principal) {
         try {
-            emailService.deleteEmail(principal.getName(), deleteEmailDto.getEmail());
+            emailService.deleteEmail(principal.getName(), deleteEmailDto);
             return ResponseEntity.ok("Email deleted successfully");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

@@ -6,10 +6,11 @@ import lombok.*;
 
 @Entity
 @Table(name = "phones", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"phone"})
+        @UniqueConstraint(columnNames = {"number"})
 })
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "number")
 @Getter
 @Setter
 @ToString
@@ -18,14 +19,14 @@ public class Phone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String phone;
+    private String number;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
     private User user;
 
-    public Phone(String phone) {
-        this.phone = phone;
+    public Phone(String number) {
+        this.number = number;
     }
 }

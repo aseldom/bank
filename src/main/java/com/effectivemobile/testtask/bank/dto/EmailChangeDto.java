@@ -5,6 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AddPhoneDto {
-    private String phone;
+public class EmailChangeDto {
+
+    private String oldEmail;
+
+    private String newEmail;
 }

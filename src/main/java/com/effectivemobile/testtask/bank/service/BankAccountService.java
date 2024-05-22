@@ -1,10 +1,10 @@
 package com.effectivemobile.testtask.bank.service;
 
-import com.effectivemobile.testtask.bank.dto.TransferMoneyDto;
-import com.effectivemobile.testtask.bank.dto.TransferMoneyReturnDto;
+import com.effectivemobile.testtask.bank.dto.MoneyTransferDto;
+import com.effectivemobile.testtask.bank.dto.MoneyTransferReturnDto;
 
 public interface BankAccountService {
 
-    TransferMoneyReturnDto transferMoney(TransferMoneyDto transferMoneyDto, String userName);
+    MoneyTransferReturnDto transferMoney(MoneyTransferDto moneyTransferDto, String userName);
 
 }

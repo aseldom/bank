@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AddEmailDto {
+public class EmailAddDto {
     @Email
     private String email;
 }

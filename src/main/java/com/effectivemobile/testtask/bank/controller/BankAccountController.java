@@ -1,7 +1,7 @@
 package com.effectivemobile.testtask.bank.controller;
 
-import com.effectivemobile.testtask.bank.dto.TransferMoneyDto;
-import com.effectivemobile.testtask.bank.dto.TransferMoneyReturnDto;
+import com.effectivemobile.testtask.bank.dto.MoneyTransferDto;
+import com.effectivemobile.testtask.bank.dto.MoneyTransferReturnDto;
 import com.effectivemobile.testtask.bank.service.BankAccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,8 +21,8 @@ public class BankAccountController {
     private final BankAccountService bankAccountService;
 
     @PutMapping("/transfer")
-    public ResponseEntity<TransferMoneyReturnDto> transferMoney(@RequestBody TransferMoneyDto transferMoneyDto, Principal principal) {
-        TransferMoneyReturnDto transferMoneyReturnDto = bankAccountService.transferMoney(transferMoneyDto, principal.getName());
-        return ResponseEntity.status(HttpStatus.CREATED).body(transferMoneyReturnDto);
+    public ResponseEntity<MoneyTransferReturnDto> transferMoney(@RequestBody MoneyTransferDto moneyTransferDto, Principal principal) {
+        MoneyTransferReturnDto moneyTransferReturnDto = bankAccountService.transferMoney(moneyTransferDto, principal.getName());
+        return ResponseEntity.status(HttpStatus.CREATED).body(moneyTransferReturnDto);
     }
 }

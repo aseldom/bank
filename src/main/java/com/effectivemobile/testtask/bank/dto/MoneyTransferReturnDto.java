@@ -1,15 +1,16 @@
 package com.effectivemobile.testtask.bank.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 
-@Setter
 @Getter
-public class TransferMoneyDto {
+@Setter
+@AllArgsConstructor
+public class MoneyTransferReturnDto {
 
-    private String recipient;
-    private BigDecimal value;
+    private BigDecimal balance;
 
 }

@@ -5,7 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PhoneDeleteDto {
+public class PhoneChangeDto {
 
-    private String number;
+    private String oldPhoneNumber;
+
+    private String newPhoneNumber;
 }

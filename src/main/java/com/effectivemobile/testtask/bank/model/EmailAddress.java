@@ -11,6 +11,7 @@ import lombok.*;
 })
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "email")
 @Getter
 @Setter
 @ToString

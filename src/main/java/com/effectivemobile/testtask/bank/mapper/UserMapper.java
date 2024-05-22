@@ -35,7 +35,7 @@ public interface UserMapper {
 
     default void toPhones(UserCreateDto userCreateDto, User user) {
         Set<Phone> phones = userCreateDto.getPhones();
-        phones.forEach(phone -> phone.setUser(user));
+        phones.forEach(number -> number.setUser(user));
         user.setPhones(phones);
     }
 
