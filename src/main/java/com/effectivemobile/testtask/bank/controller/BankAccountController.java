@@ -3,6 +3,7 @@ package com.effectivemobile.testtask.bank.controller;
 import com.effectivemobile.testtask.bank.dto.MoneyTransferDto;
 import com.effectivemobile.testtask.bank.dto.MoneyTransferReturnDto;
 import com.effectivemobile.testtask.bank.service.BankAccountService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class BankAccountController {
     private final BankAccountService bankAccountService;
 
     @PutMapping("/transfer")
-    public ResponseEntity<MoneyTransferReturnDto> transferMoney(@RequestBody MoneyTransferDto moneyTransferDto, Principal principal) {
+    public ResponseEntity<MoneyTransferReturnDto> transferMoney(@Valid @RequestBody MoneyTransferDto moneyTransferDto, Principal principal) {
         MoneyTransferReturnDto moneyTransferReturnDto = bankAccountService.transferMoney(moneyTransferDto, principal.getName());
         return ResponseEntity.status(HttpStatus.CREATED).body(moneyTransferReturnDto);
     }

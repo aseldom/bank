@@ -9,7 +9,6 @@ import com.effectivemobile.testtask.bank.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import java.util.List;
 import java.util.Set;
 
 @Mapper(componentModel = "spring")
@@ -18,8 +17,6 @@ public interface UserMapper {
     UserReturnDto toUserReturnDto(User user);
 
     UserSearchDto toUserSearchDto(User user);
-
-    List<UserReturnDto> toUserReturnDtos(List<User> users);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "emails", ignore = true)
@@ -38,7 +35,7 @@ public interface UserMapper {
 
     default void toPhones(UserCreateDto userCreateDto, User user) {
         Set<Phone> phones = userCreateDto.getPhones();
-        phones.forEach(number -> number.setUser(user));
+        phones.forEach(phone -> phone.setUser(user));
         user.setPhones(phones);
     }
 

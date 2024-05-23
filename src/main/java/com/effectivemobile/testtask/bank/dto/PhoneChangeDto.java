@@ -1,5 +1,6 @@
 package com.effectivemobile.testtask.bank.dto;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,7 +8,9 @@ import lombok.Setter;
 @Setter
 public class PhoneChangeDto {
 
+    @NotEmpty
     private String oldPhoneNumber;
 
+    @NotEmpty
     private String newPhoneNumber;
 }

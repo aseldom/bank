@@ -1,10 +1,6 @@
 package com.effectivemobile.testtask.bank.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -21,9 +17,9 @@ public class BankAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    private BigDecimal balance;
+    @Column(nullable = false)
+    private BigDecimal balance = BigDecimal.valueOf(0);
 
-    @NotNull
-    private BigDecimal initialDeposit;
+    @Column(nullable = false)
+    private BigDecimal initialDeposit = BigDecimal.valueOf(0);
 }

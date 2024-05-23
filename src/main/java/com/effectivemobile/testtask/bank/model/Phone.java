@@ -2,6 +2,7 @@ package com.effectivemobile.testtask.bank.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
 @Entity
@@ -19,6 +20,8 @@ public class Phone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    @NotEmpty
     private String number;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
