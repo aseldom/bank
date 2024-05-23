@@ -1,4 +1,4 @@
-package com.effectivemobile.testtask.bank.service;
+package com.effectivemobile.testtask.bank.service.impl;
 
 import com.effectivemobile.testtask.bank.dto.UserCreateDto;
 import com.effectivemobile.testtask.bank.dto.UserReturnDto;
@@ -6,6 +6,7 @@ import com.effectivemobile.testtask.bank.dto.UserSearchDto;
 import com.effectivemobile.testtask.bank.mapper.UserMapper;
 import com.effectivemobile.testtask.bank.model.User;
 import com.effectivemobile.testtask.bank.repository.UserRepository;
+import com.effectivemobile.testtask.bank.service.UserService;
 import com.effectivemobile.testtask.bank.util.UserSpecifications;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;

@@ -1,4 +1,4 @@
-package com.effectivemobile.testtask.bank.service;
+package com.effectivemobile.testtask.bank.service.impl;
 
 import com.effectivemobile.testtask.bank.dto.EmailAddDto;
 import com.effectivemobile.testtask.bank.dto.EmailChangeDto;
@@ -9,6 +9,7 @@ import com.effectivemobile.testtask.bank.model.EmailAddress;
 import com.effectivemobile.testtask.bank.model.User;
 import com.effectivemobile.testtask.bank.repository.EmailRepository;
 import com.effectivemobile.testtask.bank.repository.UserRepository;
+import com.effectivemobile.testtask.bank.service.EmailService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

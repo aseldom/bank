@@ -1,4 +1,4 @@
-package com.effectivemobile.testtask.bank.service;
+package com.effectivemobile.testtask.bank.service.impl;
 
 import com.effectivemobile.testtask.bank.model.User;
 import com.effectivemobile.testtask.bank.repository.UserRepository;

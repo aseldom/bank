@@ -1,4 +1,4 @@
-package com.effectivemobile.testtask.bank.service;
+package com.effectivemobile.testtask.bank.service.impl;
 
 import com.effectivemobile.testtask.bank.dto.MoneyTransferDto;
 import com.effectivemobile.testtask.bank.dto.MoneyTransferReturnDto;
@@ -6,6 +6,7 @@ import com.effectivemobile.testtask.bank.model.BankAccount;
 import com.effectivemobile.testtask.bank.model.User;
 import com.effectivemobile.testtask.bank.repository.BankAccountRepository;
 import com.effectivemobile.testtask.bank.repository.UserRepository;
+import com.effectivemobile.testtask.bank.service.BankAccountService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
