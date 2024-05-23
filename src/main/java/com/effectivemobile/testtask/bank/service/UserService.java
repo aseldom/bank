@@ -13,7 +13,14 @@ public interface UserService {
     Optional<UserReturnDto> saveUser(UserCreateDto user);
 
     Page<UserSearchDto> searchUsers(
-            LocalDate birthDate, String number, String fullName, String email, int page, int size, String sortBy, String sortDir
+            LocalDate birthDate,
+            String number,
+            String fullName,
+            String email,
+            int page,
+            int size,
+            String sortBy,
+            String sortDir
     );
 
 }

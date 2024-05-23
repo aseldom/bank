@@ -9,6 +9,9 @@ import com.effectivemobile.testtask.bank.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.OptimisticLockingFailureException;
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +25,7 @@ public class BankAccountServiceImpl implements BankAccountService {
     private final UserRepository userRepository;
     private final BankAccountRepository bankAccountRepository;
 
+    @Retryable(retryFor = {OptimisticLockingFailureException.class}, maxAttempts = 5, backoff = @Backoff(delay = 1000))
     @Transactional
     @Override
     public MoneyTransferReturnDto transferMoney(MoneyTransferDto moneyTransferDto, String userName) {
