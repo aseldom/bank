@@ -47,7 +47,8 @@ public class BankAccountServiceImpl implements BankAccountService {
         bankAccountRepository.save(fromAccount);
         bankAccountRepository.save(toAccount);
 
-        LOGGER.info("Transferred {} from user {} to user {}", moneyTransfer, fromUser.getUserName(), toUser.getUserName());
+        LOGGER.info("Transferred {} from user {} to user {} balance sender {} balance recipient {}",
+                moneyTransfer, fromUser.getUserName(), toUser.getUserName(), fromAccount.getBalance(), toAccount.getBalance());
         return new MoneyTransferReturnDto(fromAccount.getBalance());
     }
 
